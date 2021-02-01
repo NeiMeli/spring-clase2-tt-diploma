@@ -7,7 +7,6 @@ import com.bootcamp.studentdiploma.service.StudentDiplomaErrorImpl;
 import com.bootcamp.studentdiploma.service.StudentDiplomaService;
 import com.bootcamp.studentdiploma.service.dto.DiplomaDTO;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import net.minidev.json.JSONValue;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -20,8 +19,8 @@ import org.springframework.web.server.ResponseStatusException;
 
 import java.util.Collections;
 import java.util.List;
-import java.util.function.Function;
 
+import static com.bootcamp.studentdiploma.common.TestConstants.toJson;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
@@ -36,8 +35,7 @@ public class StudentDiplomaIntegrationTest {
     @Autowired
     ObjectMapper objectMapper;
 
-    private static final String PATH = "/student";
-    private final Function<Object, String> toJson = JSONValue::toJSONString;
+    public static final String PATH = "/student";
 
     @Test
     void testHappy() throws Exception {

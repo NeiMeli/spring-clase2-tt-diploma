@@ -18,7 +18,7 @@ public class StudentDiplomaController {
 
     @PostMapping
     @ResponseBody
-    public DiplomaDTO generateDiploma (@RequestBody StudentDTO student) {
+    public DiplomaDTO generateDiploma(@RequestBody StudentDTO student) {
         try {
             return service.generateDiploma(student);
         } catch (final Exception e) {
